@@ -29,10 +29,10 @@
                     <a class="nav-link " href="#" style="padding-left: 30px">Notice</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"  style="padding-left: 30px">Contact Us</a>
+                    <a class="nav-link" href="contactus.jsp"  style="padding-left: 30px">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#"  style="padding-left: 30px">About Us</a>
+                    <a class="nav-link " href="../about-us-pannel/aboutUS.jsp" style="padding-left: 30px">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"  style="padding-left: 30px">View Result</a>

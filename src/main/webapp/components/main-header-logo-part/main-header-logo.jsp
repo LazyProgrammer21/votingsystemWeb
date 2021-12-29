@@ -24,14 +24,5 @@
 </div>
 
 
-<%--    <div style="height: 90px; width: 100px; float: left; background-color: #818181">--%>
-<%--        <img src="logo_election_commision.jpg" class="card-img-top" alt="logo_election_commition">--%>
 
-<%--    </div>--%>
-<%--    <div style="background-color: #818181; width: 295px; height: 90px; float: left">--%>
-
-<%--    </div>--%>
-<%--    <div style="height: 90px; width: 900px; float: left; background-color: #818181" >--%>
-<%--        <img src="header_image_electioncommision.jpg" class="card-img-bottom" alt="logo" style="height: 90px" >--%>
-<%--    </div>--%>
 
