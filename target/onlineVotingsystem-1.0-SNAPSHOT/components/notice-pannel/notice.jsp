@@ -1,76 +1,67 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hunte
-  Date: 12/22/2021
-  Time: 11:33 AM
-  To change this template use File | Settings | File Templates.
---%>
 
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title></title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--&lt;%&ndash;<%@include file="/CSS/bootstrap_css_js.jsp"%>&ndash;%&gt;--%>
-
-<%--&lt;%&ndash;<table class="table">&ndash;%&gt;--%>
-
-<%--&lt;%&ndash;    <tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <th scope="col">S.N.</th>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <th scope="col">Date</th>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <th scope="col">Title</th>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <th scope="col">Descriptions</th>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    </tr>&ndash;%&gt;--%>
+<%--  Created by IntelliJ IDEA.--%>
+<%--  User: hunte--%>
+<%--  Date: 12/22/2021--%>
+<%--  Time: 11:33 AM--%>
+<%--  To change this template use File | Settings | File Templates.--%>
 
 
-
-<%--&lt;%&ndash;</table>&ndash;%&gt;--%>
-<%--</body>--%>
-<%--</html>--%>
-
-<%@ page import="java.sql.*" %>
-<%@ page import="java.io.*" %>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Connection with mysql database</title>
+    <title></title>
 </head>
 <body>
-<h1>Connection status </h1>
-<%
-    try {
-/* Create string of connection url within specified format with machine name, 
-port number and database name. Here machine name id localhost and 
-database name is usermaster. */
-        String connectionURL = "jdbc:mysql://localhost:3306/votingsystem";
+<%@include file="/CSS/bootstrap_css_js.jsp"%>
 
-// declare a connection by using Connection interface 
-        Connection connection = null;
+<div class="container" style=" width: auto; height:900px;margin-top: 0px; margin-left: 370px; background-color: #2696E9">
 
-// Load JBBC driver "com.mysql.jdbc.Driver" 
-        Class.forName("com.mysql.jdbc.Driver").newInstance(); 
 
-/* Create a connection by using getConnection() method that takes parameters of 
-string type connection url, user name and password to connect to database. */
-        connection = DriverManager.getConnection(connectionURL, "root", "Sub@sh9841");
+    <div style="height: 105px; background-color: white" >
+        <img src="/components/about-us-pannel/header.jpg" class="card-img-top" alt="logo_election_commission" height="105px" >
+    </div>
+    <div >
+        <%@include file="/components/menu-bar-horizental/horizental-menu-bar.jsp"%>
+    </div>
+    <br>
+    <br>
 
-// check weather connection is established or not by isClosed() method 
-        if(!connection.isClosed())
-%>
-<font size="+3" color="green"></b>
-    <%
-        out.println("Successfully connected to " + "MySQL server using TCP/IP...");
-        connection.close();
-    }
-    catch(Exception ex){
-    %>
-</font>
-<font size="+3" color="red"></b>
-    <%
-            out.println("Unable to connect to database.");
-        }
-    %>
-</font>
+<table class="table table-dark table-striped">
+<thead>
+    <tr>
+        <th scope="col">S.N.</th>
+        <th scope="col">Date</th>
+        <th scope="col">Title</th>
+        <th scope="col">Descriptions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>2021/30/12</td>
+        <td>Election Date Confirmed</td>
+        <td>The re-election will be held by 2022. </td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>20/12/2021</td>
+        <td>Voter ID issued</td>
+        <td>This is to Notify all the voters to save their voterID card</td>
+    </tr>
+
+    </tbody>
+
+
+</table>
+
+    <div class="container" style=" margin-top: 550px; float: bottom">
+        <%@include file="/components/button-part-bar/buttonpart.jsp"%>
+    </div>
+</div>
+
+
 </body>
 </html>
+
+
+
