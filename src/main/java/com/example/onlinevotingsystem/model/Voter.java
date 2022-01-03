@@ -3,49 +3,49 @@ package com.example.onlinevotingsystem.model;
 import java.sql.Blob;
 
 public class Voter {
-    private String Name;
-    private int citizenhipNumber;
-    private int PhoneNumber;
-    private Blob faceData;
 
+    private String fullName;
+    private Float phoneNumber;
+    private Float citizenshipNumber;
+    private Blob profilePic;
 
-    public String getName() {
-        return Name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public int getCitizenhipNumber() {
-        return citizenhipNumber;
+    public Float getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setCitizenhipNumber(int citizenhipNumber) {
-        this.citizenhipNumber = citizenhipNumber;
+    public void setPhoneNumber(Float phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public int getPhoneNumber() {
-        return PhoneNumber;
+    public Float getCitizenshipNumber() {
+        return citizenshipNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
-        PhoneNumber = phoneNumber;
+    public void setCitizenshipNumber(Float citizenshipNumber) {
+        this.citizenshipNumber = citizenshipNumber;
     }
 
-    public Blob getFaceData() {
-        return faceData;
+    public Blob getProfilePic() {
+        return profilePic;
     }
 
-    public void setFaceData(Blob faceData) {
-        this.faceData = faceData;
+    public void setProfilePic(Blob profilePic) {
+        this.profilePic = profilePic;
     }
 
-    public Voter(String name, int citizenhipNumber, int phoneNumber, Blob faceData) {
-        Name = name;
-        this.citizenhipNumber = citizenhipNumber;
-        PhoneNumber = phoneNumber;
-        this.faceData = faceData;
+    public Voter(String fullName, Float phoneNumber, Float citizenshipNumber, Blob profilePic) {
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.citizenshipNumber = citizenshipNumber;
+        this.profilePic = profilePic;
     }
 
     public Voter() {
@@ -54,10 +54,10 @@ public class Voter {
     @Override
     public String toString() {
         return "Voter{" +
-                "Name='" + Name + '\'' +
-                ", citizenhipNumber=" + citizenhipNumber +
-                ", PhoneNumber=" + PhoneNumber +
-                ", faceData=" + faceData +
+                "fullName='" + fullName + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", citizenshipNumber=" + citizenshipNumber +
+                ", profilePic=" + profilePic +
                 '}';
     }
 }

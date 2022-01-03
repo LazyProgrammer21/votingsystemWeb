@@ -6,6 +6,29 @@
 <%--  To change this template use File | Settings | File Templates.--%>
 
 
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%
+
+    String driverName = "com.mysql.jdbc.Driver";
+    String connectionUrl = "jdbc:mysql://localhost:3306/";
+    String dbName = "votingsystem";
+    String userId = "root";
+    String password = "Sub@sh9841";
+
+    try {
+        Class.forName(driverName);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -26,28 +49,41 @@
     <br>
     <br>
 
+    <div>
+        <p><h2>Today Date: <%=new java.util.Date()%></h2></p>
+    </div>
 <table class="table table-dark table-striped">
 <thead>
     <tr>
-        <th scope="col">S.N.</th>
+        <th scope="col">Notice ID</th>
         <th scope="col">Date</th>
         <th scope="col">Title</th>
         <th scope="col">Descriptions</th>
     </tr>
     </thead>
     <tbody>
+    <%
+        try{
+            connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
+            statement=connection.createStatement();
+            String sql ="SELECT * FROM votingsystem.notice";
+
+            resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+    %>
     <tr>
-        <th scope="row">1</th>
-        <td>2021/30/12</td>
-        <td>Election Date Confirmed</td>
-        <td>The re-election will be held by 2022. </td>
+        <td><%= resultSet.getInt("idNotice")%></td>
+        <td><%= resultSet.getString("Date")%></td>
+        <td><%= resultSet.getString("Title")%></td>
+        <td><%= resultSet.getString("Description")%></td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>20/12/2021</td>
-        <td>Voter ID issued</td>
-        <td>This is to Notify all the voters to save their voterID card</td>
-    </tr>
+    <%
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    %>
 
     </tbody>
 

@@ -27,8 +27,7 @@
 
         Address: Baluwatar, ktm,nepal 44600
 
-        Locate on map:
-        <a href="https://www.google.com/maps/place/27%C2%B043'44.3%22N+85%C2%B020'12.0%22E/@27.7289737,85.3279002,15z/data=!3m1!4b1!4m6!3m5!1s0x0:0xb8446e72b59a45c1!7e2!8m2!3d27.7289737!4d85.3366554" target="_blank">Location</a>
+        Locate on map:<a href="https://www.google.com/maps/place/27%C2%B043'44.3%22N+85%C2%B020'12.0%22E/@27.7289722,85.334478,17z/data=!3m1!4b1!4m6!3m5!1s0x0:0xb8446e72b59a45c1!7e2!8m2!3d27.7289737!4d85.3366554" target="_blank">Location</a>
 
 </pre>
 
@@ -36,9 +35,16 @@
          </h2>
         </p>
 
+        <div id = "content" style="width: 100%; height: 600px; background-color: #71b7e6"><iframe name="content" src="map.html" style="height: 100%; width: 100%"></iframe>
+
+        </div>
+
+        <div class="container" style=" margin-top: 01px; float: bottom">
+            <%@include file="buttonpart.jsp"%>
+        </div>
+
 
     </div>
-
 
 </main>
 

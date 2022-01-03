@@ -14,27 +14,41 @@
 
 
 <body>
-<table class="table table dark table-striped">
-    <thead>
-    <tr>
-        <th scope="col">Postion</th>
-        <th scope="col">Candidate</th>
+<div class="container" style=" width: auto; height:600px;margin-top: 0px; margin-left: 370px; background-color: #2696E9">
 
 
-    </tr>
-    <tr>
-        <th>SN</th>
-        <th>Name</th>
-        <th>Party</th>
-        <th>Logo</th>
-    </tr>
+    <div style="height: 105px; background-color: white" >
+        <img src="img/header.jpg" class="card-img-top" alt="logo_election_commission" height="105px" >
+    </div>
+    <div >
+        <%@include file="/horizental-menu-bar.jsp"%>
+    </div>
+    <div>
+        <table class="table table dark table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Postion</th>
+                <th scope="col">Candidate</th>
 
 
-    </thead>
+            </tr>
+            <tr>
+                <th>SN</th>
+                <th>Name</th>
+                <th>Party</th>
+                <th>Logo</th>
+            </tr>
+
+
+            </thead>
 
 
 
 
-</table>
+        </table>
+
+    </div>
+
+</div>
 </body>
 </html>

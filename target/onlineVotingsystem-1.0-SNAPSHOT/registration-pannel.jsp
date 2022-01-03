@@ -5,6 +5,38 @@
   Time: 8:40 PM
   To change this template use File | Settings | File Templates.
 --%>
+
+<%@page import="com.example.onlinevotingsystem.dao.SentCodeTwilio" %>
+
+
+<%
+
+if(request.getParameter("getCode")!=null){
+
+    SentCodeTwilio obj1 = new SentCodeTwilio();
+    obj1.sentOTP(pnum);
+
+}
+
+
+%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
@@ -22,37 +54,8 @@
             box-sizing: border-box;
             font-family: 'Poppins',sans-serif;
         }
-        body{
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            background: linear-gradient(135deg, #71b7e6, #9b59b6);
-        }
-        .container{
-            max-width: 700px;
-            width: 100%;
-            background-color: #fff;
-            padding: 25px 30px;
-            border-radius: 5px;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-        }
-        .container .title{
-            font-size: 25px;
-            font-weight: 500;
-            position: relative;
-        }
-        .container .title::before{
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 3px;
-            width: 30px;
-            border-radius: 5px;
-            background: linear-gradient(135deg, #71b7e6, #9b59b6);
-        }
+
+
         .content form .user-details{
             display: flex;
             flex-wrap: wrap;
@@ -108,7 +111,7 @@
             /* transform: scale(0.99); */
             background: linear-gradient(-135deg, #71b7e6, #9b59b6);
         }
-        @media(max-width: 584px){
+        @media(max-width: 484px){
             .container{
                 max-width: 100%;
             }
@@ -137,149 +140,64 @@
         body {
             font-family:"Raleway";
         }
-        .center {
-            position:absolute;
-            top:50%;
-            left:50%;
-            transform:translate(-50%,-50%);
-        }
-        .popup-overlay {
-            position:fixed;
-            top:0px;
-            left:0px;
-            width:100%;
-            height:100vh;
-            z-index:1;
-            background:rgba(0,0,0,0.5);
-            display:none;
-        }
-        .popup {
-            position:absolute;
-            top:-150%;
-            left:50%;
-            transform:translate(-50%,-50%) scale(1.15);
-            width:600px;
-            height:440px;
-            background:#f5f5f5;
-            z-index:2;
-            opacity:0;
-            box-shadow:5px 5px 3px rgba(0,0,0,0.2);
-            transition:transform 300ms ease-in-out,opacity 300ms ease-in-out;
-        }
-        body.showLoginForm .popup-overlay {
-            display:block;
-        }
-        body.showLoginForm .popup {
-            top:50%;
-            opacity:1;
-            transform:translate(-50%,-50%) scale(1);
-        }
-        .popup .popup-close {
-            position:absolute;
-            top:-10px;
-            right:-10px;
-            width:45px;
-            height:40px;
-            background:#555;
-            color:#f5f5f5;
-            font-size:25px;
-            font-weight:600;
-            text-align:center;
-            border-radius:50%;
-            cursor:pointer;
-        }
-        .popup .form .avatar {
-            margin:30px 0px 20px;
-            text-align:center;
-        }
-        .popup .form .avatar img {
-            width:300px;
-            border-radius:50%;
-        }
-        .popup .form .header {
-            text-align:center;
-            font-size:20px;
-            font-weight:600;
-            color:#222;
-            margin:20px 0px;
-        }
-        .popup .form .element {
-            padding:8px 20px;
-        }
-        .popup .form .element label {
-            display:block;
-            font-size:14px;
-            color:#222;
-            margin-bottom:5px;
-        }
-        .popup .form .element input {
-            width:100%;
-            padding:8px 10px;
-            box-sizing:border-box;
-            outline:none;
-            border:1px solid #aaa;
-            background:#eee;
-            border-radius:5px;
-        }
-        .popup .form .element button {
-            margin-top:5px;
-            width:100%;
-            padding:10px 0px;
-            text-transform:uppercase;
-            outline:none;
-            border:none;
-            font-size:15px;
-            font-weight:600;
-            border-radius:5px;
-            cursor:pointer;
-            background:#4889da;
-            color:#f5f5f5;
-        }
+
+
 
     </style>
 </head>
 <body>
-<div class="center">
-    <button onclick="openLoginForm()">Register</button>
-</div>
-<div class="popup-overlay"></div>
-<div class=" popup container">
-    <div class="popup-close" onclick="closeLoginForm()">×</div>
-    <div class="title">Registration</div>
-    <div class="content">
-        <form action="#">
+
+<%@include file="CSS/bootstrap_css_js.jsp"%>
+<div class="container" style=" width: auto; height:auto; margin-left: 370px; background-color: #2696E9">
+
+
+    <div style="height: 105px; background-color: white" >
+        <img src="img/header.jpg" class="card-img-top" alt="logo_election_commission" height="105px" >
+    </div>
+    <div >
+        <%@include file="/horizental-menu-bar.jsp"%>
+    </div>
+<div class="container" style="height: 950px; margin-left: 410px; margin-top: 70px">
+    <div class="title"><h1>Registration</h1></div>
+
+        <form action="<%=request.getContextPath()%>/VoterServlet" method="post">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Full Name</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input style="width: 400px" type="text" id="name" placeholder="Enter your name" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Phone Number</span>
-                    <input type="number" placeholder="Enter your phone number" required>
+                    <input style="width: 400px" type="text"  id="pnum" placeholder="Enter your phone number" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Citizenship Number</span>
-                    <input type="number" placeholder="Enter your Citizenship Number" required>
+                    <input style="width: 400px" type="text" id = "cum" placeholder="Enter your Citizenship Number" required>
+                </div>
+                <div class="input-box">
+                    <a href="#" name="getCode" style="text-decoration-color: black">Get Otp</a><br>
+                    <input style="width: 400px" type="text" id="code" placeholder="OTP Code here" required>
                 </div>
 
             </div>
+            <label>We are currently working on it to record a face data. Till then please click register burtton</label><br>
+            <div style="margin-left: 280px">
 
-            <div class="button">
+                <button type="button" style="margin-left: -120px; height: 50px; width: 150px">Record Face Data</button>
+
+            </div>
+
+
+            <div class="button" style="width: 400px">
                 <input type="submit" value="Register">
             </div>
         </form>
     </div>
+    <div class="container" style=" margin-top: 01px; float: bottom">
+        <%@include file="buttonpart.jsp"%>
+    </div>
+
 </div>
-
 </body>
-<script>
 
-    function openLoginForm(){
-        document.body.classList.add("showLoginForm");
-    }
-    function closeLoginForm(){
-        document.body.classList.remove("showLoginForm");
-    }
-
-</script>
 </html>
