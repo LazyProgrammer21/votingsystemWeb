@@ -37,7 +37,7 @@
 <body>
 <%@include file="/CSS/bootstrap_css_js.jsp"%>
 
-<div class="container" style=" width: auto; height:900px;margin-top: 0px; margin-left: 370px; background-color: #2696E9">
+<div class="container" style=" width: auto; height:1250px;margin-top: 0px; margin-left: 370px; background-color: #2696E9">
 
 
     <div style="height: 105px; background-color: white" >

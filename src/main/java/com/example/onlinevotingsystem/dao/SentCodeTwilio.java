@@ -23,14 +23,14 @@ public class SentCodeTwilio {
         // this will convert any number sequence into 6 character.
         return String.format("%06d", number);
     }
-    public int sentOTP(Float pnum) {
+    public String sentOTP(long pnum) {
 
-        int OTPcode= Integer.parseInt(getRandomNumberString());
+        String OTPcode= getRandomNumberString();
         Twilio.init(Account_SID, Auth_Token);
         Message message = Message.creator(
-                new PhoneNumber("+9779865457708"),
+                new PhoneNumber(String.valueOf(pnum)),
                 new PhoneNumber("+15306257548"),
-                "Your code is").create();
+                "Your code is"+OTPcode).create();
 
         System.out.println(message.getSid());
 

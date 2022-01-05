@@ -2,6 +2,7 @@ package com.example.onlinevotingsystem.dao;
 
 import com.example.onlinevotingsystem.model.Voter;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,8 +34,8 @@ public class VoterDao {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1,getRandomNumberInt());
             pst.setString(2, v.getFullName());
-            pst.setFloat(3, v.getCitizenshipNumber());
-            pst.setFloat(4, v.getPhoneNumber());
+            pst.setString(3, v.getCitizenshipNumber());
+            pst.setString(4, v.getPhoneNumber());
             pst.setBlob(5, v.getProfilePic());
             pst.executeQuery();
         }
@@ -47,7 +48,7 @@ public class VoterDao {
 
     }
 
-    public boolean login(Float voterID, Float phone){
+    public boolean login(String voterID, String phone){
 
         boolean x = false;
         //for login
@@ -57,19 +58,19 @@ public class VoterDao {
         try {
 
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setFloat(1, voterID);
-            pst.setFloat(2, phone);
+            pst.setString(1, voterID);
+            pst.setString(2, phone);
 
 
             ResultSet rs = pst.executeQuery();
 
 
             while(rs.next()) {
-                int db_id=rs.getInt("idVoter");
-                int db_phone=rs.getInt("phone");
+                String db_id=rs.getString("idVoter");
+                String db_phone=rs.getString("phone");
 
 
-                if(voterID==db_id&&db_phone==db_phone) {
+                if(voterID.equals(db_id)&&db_phone.equals(db_phone)) {
                     x=true;
                     return x;
                 }else {

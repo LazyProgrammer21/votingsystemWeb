@@ -7,36 +7,6 @@
 --%>
 
 <%@page import="com.example.onlinevotingsystem.dao.SentCodeTwilio" %>
-
-
-<%
-
-if(request.getParameter("getCode")!=null){
-
-    SentCodeTwilio obj1 = new SentCodeTwilio();
-    obj1.sentOTP(pnum);
-
-}
-
-
-%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
@@ -164,19 +134,23 @@ if(request.getParameter("getCode")!=null){
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Full Name</span>
-                    <input style="width: 400px" type="text" id="name" placeholder="Enter your name" required>
+                    <input style="width: 400px" type="text" name="name" placeholder="Enter your name" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Phone Number</span>
-                    <input style="width: 400px" type="text"  id="pnum" placeholder="Enter your phone number" required>
+                    <input style="width: 400px" type="text"  name="pnum" placeholder="Enter your phone number" required>
+
+
                 </div>
                 <div class="input-box">
                     <span class="details">Citizenship Number</span>
-                    <input style="width: 400px" type="text" id = "cum" placeholder="Enter your Citizenship Number" required>
+                    <input style="width: 400px" type="text" name = "cum" placeholder="Enter your Citizenship Number" required>
                 </div>
                 <div class="input-box">
                     <a href="#" name="getCode" style="text-decoration-color: black">Get Otp</a><br>
-                    <input style="width: 400px" type="text" id="code" placeholder="OTP Code here" required>
+                    <input style="width: 400px" type="text" name="code" placeholder="OTP Code here" required>
+
+
                 </div>
 
             </div>
@@ -186,7 +160,6 @@ if(request.getParameter("getCode")!=null){
                 <button type="button" style="margin-left: -120px; height: 50px; width: 150px">Record Face Data</button>
 
             </div>
-
 
             <div class="button" style="width: 400px">
                 <input type="submit" value="Register">
@@ -199,5 +172,13 @@ if(request.getParameter("getCode")!=null){
 
 </div>
 </body>
+<script>
+
+    function myfunction(){
+
+    }
+
+
+</script>
 
 </html>

@@ -9,6 +9,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
 
 
 @WebServlet(name = "VoterServlet", value = "/VoterServlet")
@@ -27,26 +29,23 @@ public class VoterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String FullName= request.getParameter("name");
-        String Phone = request.getParameter("pnum");
-        String citizenshipNubmer = request.getParameter("cnum");
-        System.out.println(Integer.parseInt(Phone));
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
 
-        try{
-            Voter v = new Voter();
-            v.setFullName(FullName);
-            v.setPhoneNumber(Float.parseFloat(Phone));
-            v.setCitizenshipNumber(Float.parseFloat(citizenshipNubmer));
-            vdao.registration(v);
-
-        }
-        catch (ClassNotFoundException e){
-            e.printStackTrace();
+        response.getWriter().print(FullName);
+        out.println(request.getParameter("pnum"));
+//        long Phone = Long.parseLong(request.getParameter("pnum"));
+//        long citizenshipNubmer = Long.parseLong(request.getParameter("cnum"));
 
 
-        }
+        Voter v = new Voter();
+        v.setFullName(FullName);
+//            v.setPhoneNumber(Phone);
+//            v.setCitizenshipNumber(citizenshipNubmer);
+//            vdao.registration(v);
+
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("login-panel.jsp");
         dispatcher.forward(request, response);
-        System.out.println(Phone);
     }
 }

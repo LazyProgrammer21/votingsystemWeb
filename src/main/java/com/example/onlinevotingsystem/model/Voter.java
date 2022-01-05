@@ -1,12 +1,14 @@
 package com.example.onlinevotingsystem.model;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.Blob;
 
 public class Voter {
 
     private String fullName;
-    private Float phoneNumber;
-    private Float citizenshipNumber;
+    private String phoneNumber;
+    private String citizenshipNumber;
     private Blob profilePic;
 
     public String getFullName() {
@@ -17,19 +19,19 @@ public class Voter {
         this.fullName = fullName;
     }
 
-    public Float getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Float phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public Float getCitizenshipNumber() {
+    public String getCitizenshipNumber() {
         return citizenshipNumber;
     }
 
-    public void setCitizenshipNumber(Float citizenshipNumber) {
+    public void setCitizenshipNumber(String citizenshipNumber) {
         this.citizenshipNumber = citizenshipNumber;
     }
 
@@ -41,7 +43,7 @@ public class Voter {
         this.profilePic = profilePic;
     }
 
-    public Voter(String fullName, Float phoneNumber, Float citizenshipNumber, Blob profilePic) {
+    public Voter(String fullName, String phoneNumber, String citizenshipNumber, Blob profilePic) {
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.citizenshipNumber = citizenshipNumber;
@@ -50,6 +52,7 @@ public class Voter {
 
     public Voter() {
     }
+
 
     @Override
     public String toString() {
